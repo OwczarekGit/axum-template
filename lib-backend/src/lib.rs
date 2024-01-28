@@ -3,6 +3,7 @@ pub mod env;
 pub mod var_names;
 pub mod redis;
 pub mod cookies;
+pub mod crypt;
 
 pub use application::Application;
 use tracing::info;

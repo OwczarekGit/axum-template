@@ -21,3 +21,4 @@ serde = { version = "1.0.196", features = ["derive"] }
 chrono = { version = "0.4.33", features = ["serde"] }
 uuid = { version = "1.7.0", features = ["v4", "fast-rng"] }
 rand = "0.8.5"
+bcrypt = "0.15.0"
