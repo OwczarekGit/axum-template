@@ -6,12 +6,18 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tokio = { version = "1.35.1", features = ["full"] }
 lib-backend = { path = "../lib-backend" }
 lib-dto = { path = "../lib-dto" }
+
+tokio = { version = "1.35.1", features = ["full"] }
 axum = { version = "0.7.4", features = ["multipart", "macros"] }
 tower-cookies = "0.10.0"
 tower-http = { version = "0.5.1", features = ["fs", "cors"] }
 async-trait = "0.1.77"
 dotenvy = "0.15.7"
 tracing = "0.1.40"
+serde_json = "1.0.112"
+serde = { version = "1.0.196", features = ["derive"] }
+chrono = { version = "0.4.33", features = ["serde"] }
+uuid = { version = "1.7.0", features = ["v4", "fast-rng"] }
+rand = "0.8.5"
