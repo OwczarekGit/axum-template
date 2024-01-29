@@ -1,5 +1,8 @@
 use async_trait::async_trait;
-use axum::{extract::{FromRef, FromRequestParts}, http::request::Parts};
+use axum::{
+    extract::{FromRef, FromRequestParts},
+    http::request::Parts,
+};
 
 #[derive(Clone, FromRef)]
 pub struct AppState;

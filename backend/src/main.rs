@@ -1,19 +1,19 @@
 use app_state::AppState;
-use lib_backend::{env::read_env, Application};
+use lib_backend::{env::get_env, Application};
 
+mod app_state;
 mod auth;
 mod error;
-mod app_state;
 mod routes;
 mod system_user;
 
-pub use error::{Result, Error};
+pub use error::{Error, Result};
 
 #[tokio::main]
 async fn main() -> Result<()> {
     lib_backend::init();
-    
-    let port = read_env("PORT").parse()?;
+
+    let port = get_env("PORT").parse()?;
 
     let state = AppState;
 

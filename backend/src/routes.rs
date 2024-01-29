@@ -16,26 +16,18 @@ pub fn routes(state: AppState) -> Router<AppState> {
 }
 
 fn cors() -> CorsLayer {
-    CorsLayer::new()
-        .allow_methods(Any)
-        .allow_origin(Any)
+    CorsLayer::new().allow_methods(Any).allow_origin(Any)
 }
 
-async fn say_hello(
-    user: Option<SystemUser>,
-) -> Result<impl IntoResponse> {
+async fn say_hello(user: Option<SystemUser>) -> Result<impl IntoResponse> {
     let res = user.map(|u| u.name).unwrap_or("Anon".to_string());
     Ok(format!("Hello {}!", res))
 }
 
-async fn require_login(
-    user: SystemUser,
-) -> Result<impl IntoResponse> {
+async fn require_login(user: SystemUser) -> Result<impl IntoResponse> {
     Ok(format!("Hello authenticated {}!", user.name))
 }
 
-async fn require_admin(
-    user: SystemUser,
-) -> Result<impl IntoResponse> {
+async fn require_admin(user: SystemUser) -> Result<impl IntoResponse> {
     Ok(format!("Hello admin {}!", user.name))
 }

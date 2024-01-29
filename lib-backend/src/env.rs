@@ -1,13 +1,13 @@
-pub fn read_env(key: &str) -> String {
-    dotenvy::var(key).expect(&format!("{key} was not set in env."))
+pub fn get_env(key: &str) -> String {
+    dotenvy::var(key).unwrap_or_else(|_| panic!("The variable '{key}' was not set in env."))
 }
 
 pub trait FromEnvVar
 where
-    Self: Sized
+    Self: Sized,
 {
     fn var(key: &str) -> String {
-        read_env(key)
+        get_env(key)
     }
 
     fn from_env(key: &str) -> Self;
